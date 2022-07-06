@@ -3,25 +3,25 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #define max 12
-//Ô¤ÉèÒ»¸ö½á¹¹Ìå£¬´æÏÂÒ»×éËæ»úÊı
+//é¢„è®¾ä¸€ä¸ªç»“æ„ä½“ï¼Œå­˜ä¸‹ä¸€ç»„éšæœºæ•°
 struct SqList {
 
 	int data[max] = { 3,2,1,5,2,0,1,3,1,4 };
 	int length = 10;
 };
-//ÕÒË³Ğò±íÖĞµÄ×îĞ¡Öµ£¬²¢ÓÃ"e"·µ»Ø
+//æ‰¾é¡ºåºè¡¨ä¸­çš„æœ€å°å€¼ï¼Œå¹¶ç”¨"e"è¿”å›
 int seekmin(SqList L,int &p,int &q) 
 {
-	int k= L.data[0];//ÉèÖÃÊ×ÔªËØ×÷ÎªÀŞÖ÷£¬ÈÃºóĞøÆäËûÔªËØÓëÆäPK£¬Ğ¡ÓÚËüµÄÈËÕ¾ÔÚÀŞÌ¨ÉÏ
-	for (int i = 1; i < L.length; i++)//±éÀúË³Ğò±í
+	int k= L.data[0];//è®¾ç½®é¦–å…ƒç´ ä½œä¸ºæ“‚ä¸»ï¼Œè®©åç»­å…¶ä»–å…ƒç´ ä¸å…¶PKï¼Œå°äºå®ƒçš„äººç«™åœ¨æ“‚å°ä¸Š
+	for (int i = 1; i < L.length; i++)//éå†é¡ºåºè¡¨
 	{
 		if (k >= L.data[i])//PK
 		{
-			k = L.data[i];//Õ¾ÀŞÌ¨
-			q = i;//¼ÇÏÂ×îĞ¡ÖµµÄÎ»Ğò
+			k = L.data[i];//ç«™æ“‚å°
+			q = i;//è®°ä¸‹æœ€å°å€¼çš„ä½åº
 		}
 	}
-	p=k;//·µ»Ø×îĞ¡Öµ
+	p=k;//è¿”å›æœ€å°å€¼
 	return p, q;
 }
 
@@ -30,17 +30,17 @@ int main()
 	int min,pos;
 	SqList L;
 	if (L.length == 0) return false;
-	printf("³õÊ¼Ë³Ğò±íÎª:\n");
+	printf("åˆå§‹é¡ºåºè¡¨ä¸º:\n");
 	for (int i = 0; i < L.length; i++) 
 	{
 		printf("%3d", L.data[i]);
 	}
 	printf("\n");
 	seekmin(L,min,pos);
-	printf("ÕÒµ½µÄ×îĞ¡ÖµÊÇ:\n");
+	printf("æ‰¾åˆ°çš„æœ€å°å€¼æ˜¯:\n");
 	printf("%3d\n", min);
-	L.data[pos] = L.data[L.length - 1];//½«×îºóÒ»¸öÔªËØÌî²¹×îĞ¡ÖµÎ»ÖÃ
-	printf("±ä»¯ºóµÄË³Ğò±íÎª:\n");
+	L.data[pos] = L.data[L.length - 1];//å°†æœ€åä¸€ä¸ªå…ƒç´ å¡«è¡¥æœ€å°å€¼ä½ç½®
+	printf("å˜åŒ–åçš„é¡ºåºè¡¨ä¸º:\n");
 	for (int i = 0; i < L.length; i++)
 	{
 		printf("%3d", L.data[i]);
